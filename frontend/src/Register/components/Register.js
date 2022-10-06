@@ -26,6 +26,7 @@ function Register({
   }
 
   function onButtonClicked() {
+    localStorage.setItem('nick', nick);
     registerUser({
       "email": email,
       "nick": nick
