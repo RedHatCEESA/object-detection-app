@@ -12,15 +12,16 @@ import {
 
 const initialState = {
   scoresResponse: null,
-  scores: {
-    score: 0, scores: []
-  },
+  scores: [],
   scoresError: null,
   tagsResponse: null,
   tags: [],
   tagsError: null,
   usertagsResponse: null,
-  usertags: [],
+  usertags: {
+    total: 0,
+    labels: []
+  },
   usertagsError: null,
 };
 
@@ -29,6 +30,7 @@ export const homeReducer = (state = initialState, action) => {
     case GET_SCORES:
       return {
         ...state,
+        score: [],
         scoresResponse: null,
         scoresError: null,
       };
@@ -73,7 +75,6 @@ export const homeReducer = (state = initialState, action) => {
       return {
         ...state,
         usertagsResponse: null,
-        usertags: [],
         usertagsError: null,
       };
     case GET_USERTAGS_FULFILLED:

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, alpha } from "@material-ui/core/styles";
 import { Button, Avatar, Grid, Chip } from "@material-ui/core";
 import { getScores, getTags, getUserTags } from "../actions";
 
@@ -40,10 +40,10 @@ function Home({
 }) {
   const classes = useStyles();
 
-  var [dataScores, setDataScores] = useState(scores.scores);
+  var [dataScores, setDataScores] = useState(scores);
   var [dataTags, setDataTags] = useState(tags);
-  var [dataUsertags, setDataUsertags] = useState(usertags);
-  var [score, setScore] = useState(scores.score);
+  var [dataUsertags, setDataUsertags] = useState(usertags.labels);
+  var [score, setScore] = useState(usertags.total);
 
   useEffect(() => {
     getScores();
@@ -73,11 +73,11 @@ function Home({
   }, []);
 
   useEffect(() => {
-    setDataScores(scores.scores);
-    setScore(scores.score)
-  }, [scores]);
+    setScore(usertags.total);
+    setDataUsertags(usertags.labels)
+  }, [usertags]);
   useEffect(() => setDataTags(tags), [tags]);
-  useEffect(() => setDataUsertags(usertags), [usertags]);
+  useEffect(() => setDataScores(scores), [scores]);
   
 
   return (
@@ -95,34 +95,34 @@ function Home({
           </Button>
         </Grid>
       </Grid>
-      <Grid xs={10} spacing={1} className="marginPanel">
+      <Grid item xs={10} spacing={1} className="marginPanel">
         {dataUsertags.map((el) => (
-          <Chip color="secondary" avatar={<Avatar>{el.total}</Avatar>} label={el._id} className="marginTotal"/>
+          <Chip color="secondary" avatar={<Avatar>{el.count}</Avatar>} label={el._id} className="marginTotal"/>
         ))}
       </Grid>
       <Grid item xs={10}>
-      <Paper>
-        <Chart data={dataScores}>
-          <ArgumentAxis />
-          <ValueAxis />
-          <BarSeries valueField="count" argumentField="_id" />
-          <Title text="Aktualne wyniki" />
-          <EventTracker />
-          <Tooltip />
-        </Chart>
-      </Paper>
+        <Paper>
+          <Chart data={dataScores}>
+            <ArgumentAxis />
+            <ValueAxis />
+            <BarSeries valueField="count" argumentField="_id" />
+            <Title text="Aktualne wyniki" />
+            <EventTracker />
+            <Tooltip />
+          </Chart>
+        </Paper>
       </Grid>
       <Grid item xs={10}>
-      <Paper>
-        <Chart data={dataTags} rotated>
-          <ArgumentAxis />
-          <ValueAxis />
-          <BarSeries valueField="total" argumentField="_id" />
-          <Title text="Najpopularniejsze tagi" />
-          <EventTracker />
-          <Tooltip />
-        </Chart>
-      </Paper>
+        <Paper>
+          <Chart data={dataTags} rotated>
+            <ArgumentAxis />
+            <ValueAxis />
+            <BarSeries valueField="total" argumentField="_id" />
+            <Title text="Najpopularniejsze tagi" />
+            <EventTracker />
+            <Tooltip />
+          </Chart>
+        </Paper>
       </Grid>
     </Grid>
   );

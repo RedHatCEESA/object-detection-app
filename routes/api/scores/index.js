@@ -29,7 +29,7 @@ async function requestScores(user) {
   try {
     const response = await axios({
       method: "GET",
-      url: DBAPI_URL + "/api/v1/users/stats/" + user,
+      url: DBAPI_URL + "/api/v1/users/stats",
     });
     code = response.status;
     data = response.data;
