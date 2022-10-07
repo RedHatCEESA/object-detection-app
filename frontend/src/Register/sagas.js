@@ -16,8 +16,7 @@ function* executeRegisterUser(action) {
       method: "POST",
       url: apiUrl,
       data: {
-        email: action.payload.register.email,
-        nick: action.payload.register.nick,
+        register: action.payload.register,
       },
     });
 

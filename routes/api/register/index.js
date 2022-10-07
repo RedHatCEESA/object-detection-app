@@ -31,7 +31,10 @@ async function requestRegistration(register) {
     const response = await axios({
       method: "POST",
       url: DBAPI_URL + "/api/v1/register/users",
-      data: { register },
+      data: { 
+        email: register.email,
+        nick: register.nick 
+      },
     });
     code = response.status;
     data = response.data;
