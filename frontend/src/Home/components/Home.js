@@ -82,14 +82,14 @@ function Home({
 
   return (
     <Grid container spacing={3}>
-      <Grid container xs={6} direction="row" alignItems="center" className="marginPanel">
-        <Grid item xs={1}>
+      <Grid container xs={10} direction="row" alignItems="center" className="marginPanel">
+        <Grid item xs={2}>
           <Avatar>{localStorage.getItem('nick').slice(0,2).toLocaleUpperCase()}</Avatar>
         </Grid>
-        <Grid item xs={5}>
+        <Grid item xs={6}>
           <p className="rh-event-teaser-meta">Witaj <b>{localStorage.getItem('nick')}</b>! Twój wynik: <b>{score}</b></p>
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={4}>
           <Button variant="contained" size="large" color="secondary" className={classes.margin} href="/photo">
             Zrób zdjęcie
           </Button>
