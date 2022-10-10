@@ -10,7 +10,6 @@ import {
 const apiUrl = "/api/register";
 
 function* executeRegisterUser(action) {
-  console.log(action);
   try {
     const response = yield call(axios, {
       method: "POST",

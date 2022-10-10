@@ -19,7 +19,6 @@ const apiUrlUserTags = "/api/usertags";
 
 function* executeGetScores(action) {
   try {
-    console.log("Sending");
     const response = yield call(axios, {
       method: "POST",
       url: apiUrlScores,

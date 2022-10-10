@@ -82,7 +82,7 @@ function Home({
 
   return (
     <Grid container spacing={3}>
-      <Grid container xs={10} direction="row" alignItems="center" className="marginPanel">
+      <Grid container direction="row" alignItems="center" className="marginPanel">
         <Grid container direction="row" spacing={2} alignItems="center">
           <Grid item>
           <Avatar>{localStorage.getItem('nick').slice(0,2).toLocaleUpperCase()}</Avatar>
@@ -97,9 +97,9 @@ function Home({
           </Grid>
         </Grid>
       </Grid>
-      <Grid item xs={10} spacing={1} className="marginPanel">
+      <Grid item xs={10} className="marginPanel">
         {dataUsertags.map((el) => (
-          <Chip color="secondary" avatar={<Avatar>{el.count}</Avatar>} label={el._id} className="marginTotal"/>
+          <Chip color="secondary" avatar={<Avatar>{el.count}</Avatar>} label={el._id} className="marginTotal" key={el._id}/>
         ))}
       </Grid>
       <Grid item xs={10}>

@@ -4,7 +4,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Button, TextField, Grid, Icon } from "@material-ui/core";
 import { registerUser } from "../actions";
 import Alert from '@material-ui/lab/Alert';
-import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
+import history from "../../utilities/history";
 
 function Register({
   registerUser,
@@ -15,7 +16,7 @@ function Register({
 
   const [email, setEmail] = useState('');
   const [nick, setNick] = useState('');
-  const history = useHistory();
+  // const history = useHistory();
 
   function handleChangeNick(e) {
     setNick(e.target.value);
@@ -26,11 +27,11 @@ function Register({
   }
 
   function onButtonClicked() {
-    localStorage.setItem('nick', nick);
     registerUser({
       "email": email,
       "nick": nick
     }, () => {
+      localStorage.setItem('nick', nick);
       history.push("/");
     })
   }

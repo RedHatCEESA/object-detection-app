@@ -35,7 +35,6 @@ export const homeReducer = (state = initialState, action) => {
         scoresError: null,
       };
     case GET_SCORES_FULFILLED:
-      console.log(action?.payload?.response?.data)
       return {
         ...state,
         scoresResponse: action?.payload?.response,
@@ -57,7 +56,6 @@ export const homeReducer = (state = initialState, action) => {
         tagsError: null,
       };
     case GET_TAGS_FULFILLED:
-      console.log(action?.payload?.response?.data)
       return {
         ...state,
         tagsResponse: action?.payload?.response,
@@ -78,7 +76,6 @@ export const homeReducer = (state = initialState, action) => {
         usertagsError: null,
       };
     case GET_USERTAGS_FULFILLED:
-      console.log(action?.payload?.response?.data)
       return {
         ...state,
         usertagsResponse: action?.payload?.response,
