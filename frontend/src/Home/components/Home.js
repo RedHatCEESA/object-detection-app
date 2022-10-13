@@ -107,7 +107,7 @@ function Home({
           <Chart data={dataScores}>
             <ArgumentAxis />
             <ValueAxis />
-            <BarSeries valueField="count" argumentField="_id" />
+            <BarSeries valueField="count" argumentField="nick" />
             <Title text="Aktualne wyniki" />
             <EventTracker />
             <Tooltip />
