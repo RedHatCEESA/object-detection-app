@@ -281,7 +281,7 @@ function Photo({
         <div className="img-preview">
           <div className="error-container" style={displayError}>
             <h2>
-              <FontAwesomeIcon className="error-icon" icon={faExclamationCircle} /> Error
+              <FontAwesomeIcon className="error-icon" icon={faExclamationCircle} /> Błąd
             </h2>
             <code>{JSON.stringify(predictionError, null, 2)}</code>
           </div>
@@ -294,11 +294,11 @@ function Photo({
               <div>
                 <FontAwesomeIcon className="loading-icon" icon={faCircleNotch} spin />
               </div>
-              <div className="loading-text">Loading ...</div>
+              <div className="loading-text">Ładuję ...</div>
             </div>
             <div className="no-objects overlay" style={displayNoObjects}>
-              <div className="no-objects-text">No Objects</div>
-              <div className="no-objects-text">Found</div>
+              <div className="no-objects-text">Brak zdjęć</div>
+              <div className="no-objects-text">Znaleziono</div>
             </div>
           </div>
         </div>
@@ -310,8 +310,8 @@ function Photo({
             className="re-take-picture-button"
             onClick={onCameraToggled}
           >
-            <span className="label-word">Try</span>
-            <span className="label-word">again</span>
+            <span className="label-word">Zrób</span>
+            <span className="label-word">kolejne</span>
           </Button>
         </div>
         <div className="right-button-container button-container" style={displayButtons}></div>

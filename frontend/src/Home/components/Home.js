@@ -13,7 +13,7 @@ import {
   Title,
   ArgumentAxis,
   ValueAxis,
-  Tooltip,
+  Tooltip
 } from '@devexpress/dx-react-chart-material-ui';
 import { EventTracker } from '@devexpress/dx-react-chart';
 
@@ -105,7 +105,8 @@ function Home({
       <Grid item xs={10}>
         <Paper>
           <Chart data={dataScores}>
-            <ArgumentAxis />
+            <ArgumentAxis>
+            </ArgumentAxis>
             <ValueAxis />
             <BarSeries valueField="count" argumentField="nick" />
             <Title text="Aktualne wyniki" />
@@ -116,7 +117,7 @@ function Home({
       </Grid>
       <Grid item xs={10}>
         <Paper>
-          <Chart data={dataTags} rotated>
+          <Chart data={dataTags.sort((a, b) => { return a.total - b.total })} rotated>
             <ArgumentAxis />
             <ValueAxis />
             <BarSeries valueField="total" argumentField="_id" />
