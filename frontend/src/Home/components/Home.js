@@ -105,8 +105,7 @@ function Home({
       <Grid item xs={10}>
         <Paper>
           <Chart data={dataScores}>
-            <ArgumentAxis>
-            </ArgumentAxis>
+            <ArgumentAxis />
             <ValueAxis />
             <BarSeries valueField="count" argumentField="nick" />
             <Title text="Aktualne wyniki" />
