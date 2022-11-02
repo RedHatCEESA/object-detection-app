@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useCallback, useDispatch } from "react";
 import { connect } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
-import { Button, TextField, Grid, Icon } from "@material-ui/core";
+import { Button, TextField, Grid, Checkbox, FormControlLabel } from "@material-ui/core";
 import { registerUser } from "../actions";
 import Alert from '@material-ui/lab/Alert';
 import { useHistory } from 'react-router-dom';
 import history from "../../utilities/history";
+import text from './terms.js';
 
 function Register({
   registerUser,
@@ -16,6 +17,7 @@ function Register({
 
   const [email, setEmail] = useState('');
   const [nick, setNick] = useState('');
+  const [accept, setAccept] = useState(false);
   // const history = useHistory();
 
   function handleChangeNick(e) {
@@ -36,6 +38,10 @@ function Register({
     })
   }
 
+  function handleAcceptChange(e) {
+    setAccept(e.target.checked);
+  }
+
   return(
     <div className="register">
       <div className="errorMessage">
@@ -46,29 +52,51 @@ function Register({
       </div>
       <form>
       <Grid container spacing={1}>
-          <Grid item>
-            <TextField id="email" 
-              label="email" 
-              name="email" 
-              variant="outlined" 
-              onChange={handleChangeEmail} />
-            </Grid>
-          <Grid item>
-            <TextField id="nick" 
-              label="nick" 
-              name="nick" 
-              variant="outlined" 
-              onChange={handleChangeNick} />
+        <Grid item>
+          <TextField id="email" 
+            label="email" 
+            name="email" 
+            variant="outlined" 
+            onChange={handleChangeEmail} />
           </Grid>
-          <Grid item>
-            <Button id="registerUser" 
-              variant="contained" 
-              color="secondary" 
-              size="large" 
-              onClick={onButtonClicked}>
-              Zarejestruj się
-            </Button>
-          </Grid>
+        <Grid item>
+          <TextField id="nick"
+            label="nick" 
+            name="nick" 
+            variant="outlined" 
+            onChange={handleChangeNick} 
+            inputProps={{ maxLength: 10 }}/>
+        </Grid>
+        <Grid item>
+          <Button id="registerUser" 
+            variant="contained" 
+            color="secondary" 
+            size="large"
+            disabled={!accept}
+            onClick={onButtonClicked}>
+            Zarejestruj się
+          </Button>
+        </Grid>
+      </Grid>
+      <Grid container style={{ margin: 10}}>
+        <FormControlLabel control={
+            <Checkbox
+              checked={accept}
+              onChange={handleAcceptChange}
+              name="accept"
+              color="secondary"
+            />
+          }
+          label="Akceptuję regulamin"
+        />
+      </Grid>
+      <Grid container>
+        <TextField multiline 
+          variant="outlined"
+          maxRows={10} 
+          value={text} 
+          style={{width: "95%"}}
+          label="Regulamin" />
       </Grid>
       </form>
     </div>
