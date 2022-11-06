@@ -38,7 +38,7 @@ export const homeReducer = (state = initialState, action) => {
       return {
         ...state,
         scoresResponse: action?.payload?.response,
-        scores: action?.payload?.response?.data,
+        scores: Array.isArray(action?.payload?.response?.data) ? action?.payload?.response?.data : [action?.payload?.response?.data],
         scoresError: null,
       };
     case GET_SCORES_REJECTED:
