@@ -46,7 +46,7 @@ function Register({
     <div className="register">
       <div className="errorMessage">
         {registrationError != null ? 
-          <Alert severity="error" variant="outlined" spacing={3}>Błąd podczas rejestracji</Alert>
+          <Alert severity="error" variant="outlined" spacing={3}>Error during registration</Alert>
           : ""
         }
       </div>
@@ -72,31 +72,10 @@ function Register({
             variant="contained" 
             color="secondary" 
             size="large"
-            disabled={!accept}
             onClick={onButtonClicked}>
-            Zarejestruj się
+            Register
           </Button>
         </Grid>
-      </Grid>
-      <Grid container style={{ margin: 10}}>
-        <FormControlLabel control={
-            <Checkbox
-              checked={accept}
-              onChange={handleAcceptChange}
-              name="accept"
-              color="secondary"
-            />
-          }
-          label="Akceptuję regulamin"
-        />
-      </Grid>
-      <Grid container>
-        <TextField multiline 
-          variant="outlined"
-          maxRows={10} 
-          value={text} 
-          style={{width: "95%"}}
-          label="Regulamin" />
       </Grid>
       </form>
     </div>

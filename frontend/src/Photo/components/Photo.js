@@ -294,11 +294,11 @@ function Photo({
               <div>
                 <FontAwesomeIcon className="loading-icon" icon={faCircleNotch} spin />
               </div>
-              <div className="loading-text">Ładuję ...</div>
+              <div className="loading-text">Loading ...</div>
             </div>
             <div className="no-objects overlay" style={displayNoObjects}>
-              <div className="no-objects-text">Brak zdjęć</div>
-              <div className="no-objects-text">Znaleziono</div>
+              <div className="no-objects-text">No photos</div>
+              <div className="no-objects-text">Found</div>
             </div>
           </div>
         </div>
@@ -310,8 +310,8 @@ function Photo({
             className="re-take-picture-button"
             onClick={onCameraToggled}
           >
-            <span className="label-word">Zrób</span>
-            <span className="label-word">kolejne</span>
+            <span className="label-word">Next</span>
+            <span className="label-word">photo</span>
           </Button>
         </div>
         <div className="right-button-container button-container" style={displayButtons}></div>
@@ -323,7 +323,7 @@ function Photo({
     <div>
       <div className="marginPanel">
         <Button variant="contained" size="large" color="secondary" className={classes.margin} href="/">
-          Powrót do menu głównego
+          Back to main menu
         </Button>
       </div>
       <div className="photo">

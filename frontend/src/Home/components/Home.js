@@ -88,11 +88,11 @@ function Home({
           <Avatar>{localStorage.getItem('nick').slice(0,2).toLocaleUpperCase()}</Avatar>
           </Grid>
           <Grid item>
-          <p className="rh-event-teaser-meta">Witaj <b>{localStorage.getItem('nick')}</b>! Twój wynik: <b>{score}</b></p>
+          <p className="rh-event-teaser-meta">Hello <b>{localStorage.getItem('nick')}</b>! Your score: <b>{score}</b></p>
           </Grid>
           <Grid item>
             <Button variant="contained" size="large" color="secondary" className={classes.margin} href="/photo">
-              Zrób zdjęcie
+              Take a photo
             </Button>
           </Grid>
         </Grid>
@@ -108,7 +108,7 @@ function Home({
             <ArgumentAxis />
             <ValueAxis />
             <BarSeries valueField="count" argumentField="nick" />
-            <Title text="Aktualne wyniki" />
+            <Title text="Current results" />
             <EventTracker />
             <Tooltip />
           </Chart>
@@ -120,7 +120,7 @@ function Home({
             <ArgumentAxis />
             <ValueAxis />
             <BarSeries valueField="total" argumentField="_id" />
-            <Title text="Najpopularniejsze tagi" />
+            <Title text="Popular tags" />
             <EventTracker />
             <Tooltip />
           </Chart>
