@@ -1,8 +1,11 @@
 import React, { lazy, Suspense } from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route, Router } from "react-router-dom";
 
 const Video = lazy(() => import("../../Video"));
 const Photo = lazy(() => import("../../Photo"));
+const Register = lazy(() => import("../../Register"));
+const Home = lazy(() => import("../../Home"));
+const PrivateRoute = lazy(() => import("./PrivateRoute"));
 
 const Routes = () => (
   <Suspense
@@ -13,11 +16,10 @@ const Routes = () => (
     }
   >
     <Switch>
-      <Route exact path="/">
-        <Redirect to="/photo" />
-      </Route>
-      <Route path="/photo" exact component={Photo} />
-      <Route path="/video" exact component={Video} />
+      <PrivateRoute exact path="/" component={Home} />
+      <Route path="/register" exact component={Register} />
+      <PrivateRoute path="/photo" exact component={Photo} />
+      <PrivateRoute path="/video" exact component={Video} />  
     </Switch>
   </Suspense>
 );

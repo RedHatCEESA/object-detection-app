@@ -19,6 +19,7 @@ function* executeSearchPhoto(action) {
       url: apiUrl,
       data: {
         image: action.payload.photo,
+        user: localStorage.getItem('user'),
       },
     });
     yield put(searchPhotoFulfilled(response));
